@@ -9,27 +9,17 @@ import java.io.IOException;
 public class AdapterFirstProjectTest {
     private static final String TARGET_TEST_RESOURCES_PATH = "target/test-classes/";
 
-   /* @DataProvider
-    public Object[][] sortTestData() {
-        return new Object[][]{
-                {Main.INSERTION, "testOutputInsertion.txt", "testOutputFileInsertionExpected.txt"},
-                {Main.MERGE, "testOutputMerge.txt", "testOutputFileMergeExpected.txt"},
-                {Main.SELECTION, "testOutputSelection.txt", "testOutputFileSelectionExpected.txt"},
-        };
-    }
-
-    @Test(description = "", dataProvider = "sortTestData")
-    public void sortTest(String sortType, String outputFilePath, String outputFileExpectedPath) throws IOException {
-        String targetOutputFilePath = TARGET_TEST_RESOURCES_PATH + outputFilePath;
-        Main.main(
+    @Test(description = "")
+    public void adapterTest() throws IOException {
+        String targetOutputFilePath = TARGET_TEST_RESOURCES_PATH + "output.txt";
+        Adapter.main(
                 new String[]{
-                        "-i",  TARGET_TEST_RESOURCES_PATH + "testInputFile.txt",
-                        "-o", targetOutputFilePath,
-                        "-s", sortType
+                        "-i",  TARGET_TEST_RESOURCES_PATH + "input.txt",
+                        "-o", targetOutputFilePath
                 });
          Assert.assertTrue(contentEquals(
                  new File(targetOutputFilePath),
-                 new File(TARGET_TEST_RESOURCES_PATH + outputFileExpectedPath)
+                 new File(TARGET_TEST_RESOURCES_PATH + "expected.txt")
          ));
-    }*/
+    }
 }

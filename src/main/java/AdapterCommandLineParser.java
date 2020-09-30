@@ -1,14 +1,11 @@
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.HelpFormatter;
-import org.apache.commons.cli.Option;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.ParseException;
+import org.apache.commons.cli.*;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class AdapterCommandLineParser {
-    public static final String INPUT = "input";
-    public static final String OUTPUT = "output";
+    private static final String INPUT = "input";
+    private static final String OUTPUT = "output";
 
     private static Options options = new Options();
 
@@ -18,7 +15,7 @@ public class AdapterCommandLineParser {
     usage: utility-name
     -i,--input <arg>    input file path
     -o,--output <arg>   output file*/
-    public static CommandLine parseCMDArgs(String[] args) {
+    public static FileHandlerInterface parseCMDArgs(String[] args) throws FileNotFoundException {
         configureOption("i", INPUT, "input file path");
         configureOption("o", OUTPUT, "output file");
 
@@ -34,8 +31,9 @@ public class AdapterCommandLineParser {
 
             System.exit(1);
         }
-
-        return cmd;
+        File inputFile = new File(cmd.getOptionValue(AdapterCommandLineParser.INPUT));
+        File outputFile = new File(cmd.getOptionValue(AdapterCommandLineParser.OUTPUT));
+        return new FileHandler(inputFile, outputFile);
     }
 
     private static void configureOption(String opt, String longOpt, String description) {

@@ -16,26 +16,27 @@
          3. Написать автотест для проверки функционирования
          4. Если потребуется использовать адаптер в проектной работе, предоставить описание в текстовом файле в GitHub репозитории где конкретно и в какой роли используется этот шаблон.
          5. нарисовать диаграмму классов.
-         
+
+###Исполняемый jar файл данного проекта будет добавлен в проект AdapterSecondProject как библиотека, чтобы AdapterSecondProject мог использовать класс Adapter для вычисления суммы матриц.
+
 ## Запуск:
 1. mvn clean test -DsuiteXmlFile=testng.xml 
     или
 2. mvn clean test
-3. mvn clean install (если необходимо собрать исполняемый jar файл AbstractFactory-1.0-jar-with-dependencies.jar, после сборки лежит в target)
+3. mvn clean install (если необходимо собрать исполняемый jar файл AdapterFirstProject-1.0-jar-with-dependencies.jar, после сборки лежит в target)
 
 ### Описание тестирования:
-###### 1 Способ. Уже собранный jar-файл (AbstractFactory-1.0-jar-with-dependencies.jar) расположен в корне проекта.
-Пример запуска через cmd:  java -jar AbstractFactory-1.0-jar-with-dependencies.jar -i inputFile.txt -o outputFile.txt -s merge
-типы сортировки: insertion, merge, selection
+###### 1 Способ. Уже собранный jar-файл (AdapterFirstProject-1.0-jar-with-dependencies.jar) расположен в корне проекта.
+Пример запуска через cmd: java -jar AdapterFirstProject-1.0-jar-with-dependencies.jar -i inputFile.txt -o outputFile.txt
 
 ###### 2 Способ.Тест расположен в директории src/test/java.
-input и expected output файлы лежат в src/test/resources.
+input и expected файлы лежат в src/test/resources.
 В процессе запуска тестирования они программно копируются в папку target/test-classes/,
-где в результате тестов(по одному тесту на каждый тип сортировки) генерится свой файл output, который сравнивается с expected output
+где в результате теста генерится свой файл output, который сравнивается с expected
 
 ### Логирование: 
-Файл report.log созданиется в директории проекта/jar файла.
-Содержит информацию о входном массиве, способе сортировке и выходном массиве.
+Файл logAdapter.log созданиется в директории проекта/jar файла.
+Содержит информацию о входных массивах и выходном массиве.
 
 ##### Диаграмма классов:
 Файл diagram.png находится в корне проекта (сгенерирован ресурсами Intelij IDEA)
