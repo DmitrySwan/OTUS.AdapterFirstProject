@@ -1,4 +1,4 @@
-# OTUS.MultiThreading
+# OTUS.AdapterFirstProject
 Проект в рамках обучения на платформе OTUS.
 
 ## Курс: Архитектура и шаблоны проектирования.
