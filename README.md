@@ -28,6 +28,7 @@
 ### Описание тестирования:
 ###### 1 Способ. Уже собранный jar-файл (AdapterFirstProject-1.0-jar-with-dependencies.jar) расположен в корне проекта.
 Пример запуска через cmd: java -jar AdapterFirstProject-1.0-jar-with-dependencies.jar -i inputFile.txt -o outputFile.txt
+Пример формата заполнения файла input можно посмотреть в src/test/resources
 
 ###### 2 Способ.Тест расположен в директории src/test/java.
 input и expected файлы лежат в src/test/resources.
