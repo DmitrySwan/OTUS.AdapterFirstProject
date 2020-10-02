@@ -1,4 +1,4 @@
-import static org.apache.commons.io.FileUtils.contentEquals;
+import static org.apache.commons.io.FileUtils.contentEqualsIgnoreEOL;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,12 +13,13 @@ public class AdapterFirstProjectTest {
         String targetOutputFilePath = TARGET_TEST_RESOURCES_PATH + "output.txt";
         Adapter.main(
                 new String[]{
-                        "-i",  TARGET_TEST_RESOURCES_PATH + "input.txt",
+                        "-i", TARGET_TEST_RESOURCES_PATH + "input.txt",
                         "-o", targetOutputFilePath
                 });
-         Assert.assertTrue(contentEquals(
-                 new File(targetOutputFilePath),
-                 new File(TARGET_TEST_RESOURCES_PATH + "expected.txt")
-         ));
+        Assert.assertTrue(contentEqualsIgnoreEOL(
+                new File(targetOutputFilePath),
+                new File(TARGET_TEST_RESOURCES_PATH + "expected.txt"),
+                "UTF-8"
+        ));
     }
 }
